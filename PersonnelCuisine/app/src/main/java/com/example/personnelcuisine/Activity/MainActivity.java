@@ -292,7 +292,10 @@ String emailP;
             public void onClick(View v) {
 
                 Intent intent = new Intent(MainActivity.this,CartListActivity.class);
+<<<<<<< HEAD
                 intent.putExtra("User_id",userId);
+=======
+>>>>>>> b9de0588a140ec3d4d65fdd941174c75a96a2b48
                 startActivity(intent);
 
 

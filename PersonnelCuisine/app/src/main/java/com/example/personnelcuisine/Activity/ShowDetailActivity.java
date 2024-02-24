@@ -13,7 +13,10 @@ import com.example.personnelcuisine.R;
 
 import java.util.List;
 
+<<<<<<< HEAD
 import Domain.CartModel;
+=======
+>>>>>>> b9de0588a140ec3d4d65fdd941174c75a96a2b48
 import Domain.FoodsDomain;
 import Helper.CDbHelper;
 import Helper.ManagementCart;
@@ -75,9 +78,15 @@ public class ShowDetailActivity extends AppCompatActivity {
         addToCartBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+<<<<<<< HEAD
                 CartModel cartModel = new CartModel(object.getId(),object.getName(),object.getPrice(),object.getImage(),numberOrder);
                 managementCart.insertFood(cartModel);
                 Toast.makeText(ShowDetailActivity.this,"Item Added To Your Cart Sir !",Toast.LENGTH_SHORT).show();
+=======
+
+                object.setNumberInCart(numberOrder);
+                 managementCart.insertFood(object);
+>>>>>>> b9de0588a140ec3d4d65fdd941174c75a96a2b48
             }
         });
     }

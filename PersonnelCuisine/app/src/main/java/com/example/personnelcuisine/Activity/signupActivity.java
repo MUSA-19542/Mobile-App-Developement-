@@ -2,13 +2,19 @@ package com.example.personnelcuisine.Activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+<<<<<<< HEAD
 import android.database.Cursor;
+=======
+>>>>>>> b9de0588a140ec3d4d65fdd941174c75a96a2b48
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+<<<<<<< HEAD
 import android.provider.OpenableColumns;
+=======
+>>>>>>> b9de0588a140ec3d4d65fdd941174c75a96a2b48
 import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
@@ -162,6 +168,7 @@ public class signupActivity extends AppCompatActivity {
                 Uri imageUri = data.getData();
 
                 try {
+<<<<<<< HEAD
                     // Get the file size of the selected image
                     int fileSize = getFileSize(imageUri);
 
@@ -181,6 +188,19 @@ public class signupActivity extends AppCompatActivity {
                         // Show a toast indicating that the selected image is too large
                         Toast.makeText(this, "Image size exceeds 2 MB limit. Please select a smaller image.", Toast.LENGTH_SHORT).show();
                     }
+=======
+                    // Convert the selected image URI to a Bitmap
+                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
+
+                    // Convert the Bitmap to a byte array
+                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                    imageByteArray = stream.toByteArray();
+
+                    // Set the image in the ImageView
+                    imageGallery.setImageBitmap(bitmap);
+
+>>>>>>> b9de0588a140ec3d4d65fdd941174c75a96a2b48
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -188,6 +208,7 @@ public class signupActivity extends AppCompatActivity {
         }
     }
 
+<<<<<<< HEAD
     // Method to get the file size of an image URI
     private int getFileSize(Uri uri) {
         Cursor cursor = getContentResolver().query(uri, null, null, null, null);
@@ -199,4 +220,6 @@ public class signupActivity extends AppCompatActivity {
     }
 
 
+=======
+>>>>>>> b9de0588a140ec3d4d65fdd941174c75a96a2b48
 }

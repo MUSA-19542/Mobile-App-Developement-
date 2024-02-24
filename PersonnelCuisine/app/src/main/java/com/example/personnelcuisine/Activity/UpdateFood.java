@@ -28,7 +28,10 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 import Helper.CDbHelper;
+<<<<<<< HEAD
 import Helper.CartDBHelper;
+=======
+>>>>>>> b9de0588a140ec3d4d65fdd941174c75a96a2b48
 import Helper.DbHelper;
 
 public class UpdateFood extends AppCompatActivity {
@@ -37,8 +40,11 @@ public class UpdateFood extends AppCompatActivity {
     EditText etName,etPrice,etDescription;
     RadioButton rbP,rbB,rbH,rbD;
     CDbHelper cdbHelper;
+<<<<<<< HEAD
 
     CartDBHelper carthelper;
+=======
+>>>>>>> b9de0588a140ec3d4d65fdd941174c75a96a2b48
     SharedPreferences sharepref;
     SharedPreferences.Editor editor;
 
@@ -150,10 +156,16 @@ public class UpdateFood extends AppCompatActivity {
         }
         try {
 
+<<<<<<< HEAD
        carthelper=new CartDBHelper(UpdateFood.this);
         cdbHelper = new CDbHelper(UpdateFood.this);
         cdbHelper.updateFood(foodId,name, Price, description, Type, imageByteArray);
         carthelper.setPriceForFood(foodId,Price);
+=======
+
+        cdbHelper = new CDbHelper(UpdateFood.this);
+        cdbHelper.updateFood(foodId,name, Price, description, Type, imageByteArray);
+>>>>>>> b9de0588a140ec3d4d65fdd941174c75a96a2b48
 
         Toast.makeText(UpdateFood.this, "Food data updated to  database", Toast.LENGTH_LONG).show();
         }
