@@ -4,15 +4,45 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+<<<<<<< HEAD
+import android.content.Context;
+=======
+>>>>>>> b9de0588a140ec3d4d65fdd941174c75a96a2b48
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+<<<<<<< HEAD
+import android.widget.ImageView;
+=======
+>>>>>>> b9de0588a140ec3d4d65fdd941174c75a96a2b48
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+<<<<<<< HEAD
+import com.example.personnelcuisine.OrderActivity;
+import com.example.personnelcuisine.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
+
+import Adaptor.CartListAdapter;
+import Domain.CartModel;
+import Helper.ManagementCart;
+import Interface.ChangeNumberItemsListener;
+public class CartListActivity extends AppCompatActivity {
+
+    private RecyclerView recyclerViewList;
+    private ManagementCart managementCart;
+    private CartListAdapter adapter;
+
+    TextView totalItems,deliveyCost,taxTxt,totalFeeTxt;
+    TextView CheckOut;
+    long userId;
+    float DeliveryCost,Tax,TotalFee;
+=======
 import com.example.personnelcuisine.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -30,6 +60,7 @@ public class CartListActivity extends AppCompatActivity {
     private double tax;
     private ScrollView scrollView;
 
+>>>>>>> b9de0588a140ec3d4d65fdd941174c75a96a2b48
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +68,32 @@ public class CartListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cart_list);
 
         managementCart = new ManagementCart(this);
+<<<<<<< HEAD
+        userId = getIntent().getLongExtra("User_id", -1);
+        initView();
+        initList();
+        bottomNavigation();
+       change();
+
+    }
+
+
+    public void change()
+    {
+
+        DeliveryCost=Math.round(managementCart.getTotalFee()*0.19);
+        Tax=Math.round(managementCart.getTotalFee()*0.09);
+        TotalFee=Math.round(managementCart.getTotalFee()+Tax+DeliveryCost);
+        totalFeeTxt.setText("$ "+String.valueOf(TotalFee));
+        totalItems.setText("No.  "+String.valueOf(managementCart.ItemCount()));
+        deliveyCost.setText("$ "+String.valueOf(DeliveryCost));
+        taxTxt.setText("$ "+String.valueOf(Tax));
+
+    }
+
+    private void bottomNavigation() {
+        FloatingActionButton floatingActionButton = findViewById(R.id.cartBtn);
+=======
 
         try{
             initView();
@@ -53,12 +110,17 @@ public class CartListActivity extends AppCompatActivity {
     private void bottomNavigation()
     {
         FloatingActionButton floatingActionButton=findViewById(R.id.cartBtn);
+>>>>>>> b9de0588a140ec3d4d65fdd941174c75a96a2b48
         LinearLayout homeBtn = findViewById(R.id.homeBtn);
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+<<<<<<< HEAD
+                startActivity(new Intent(CartListActivity.this, CartListActivity.class));
+=======
                 startActivity(new Intent(CartListActivity.this,CartListActivity.class));
+>>>>>>> b9de0588a140ec3d4d65fdd941174c75a96a2b48
             }
         });
 
@@ -69,6 +131,29 @@ public class CartListActivity extends AppCompatActivity {
             }
         });
 
+<<<<<<< HEAD
+
+        CheckOut.setOnClickListener(new View.OnClickListener() {
+     @Override
+     public void onClick(View view) {
+         Intent intent = new Intent(CartListActivity.this, OrderActivity.class);
+         intent.putExtra("user_Id", userId);
+         intent.putExtra("total", totalFeeTxt.getText());
+         startActivity(intent);
+     }
+ });
+
+    }
+
+    private void initView() {
+
+        CheckOut=findViewById(R.id.Txtcheckout);
+        recyclerViewList = findViewById(R.id.cartView);
+        totalFeeTxt=findViewById(R.id.totalFeeTxt);
+        totalItems=findViewById(R.id.totalitemsTxt);
+        deliveyCost=findViewById(R.id.deliveryTxt);
+        taxTxt=findViewById(R.id.taxTxt);
+=======
         checkoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -95,11 +180,20 @@ public class CartListActivity extends AppCompatActivity {
         {
             Toast.makeText(this,"Error = "+ex,Toast.LENGTH_LONG).show();
         }
+>>>>>>> b9de0588a140ec3d4d65fdd941174c75a96a2b48
     }
 
     private void initList() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerViewList.setLayoutManager(linearLayoutManager);
+<<<<<<< HEAD
+
+        adapter = new CartListAdapter((Context) this, (ArrayList<CartModel>) managementCart.getListCart());
+        recyclerViewList.setAdapter(adapter);
+    }
+}
+
+=======
         adapter = new CartListAdapter(managementCart.getListCart(), this, new ChangeNumberItemsListener() {
             @Override
             public void changed() {
@@ -138,3 +232,4 @@ public class CartListActivity extends AppCompatActivity {
 
     }
 }
+>>>>>>> b9de0588a140ec3d4d65fdd941174c75a96a2b48
